@@ -1,27 +1,11 @@
 // 1 Завдання
 // https://www.codewars.com/kata/geometry-basics-circle-circumference-in-2d/train/javascript
 // Write a function calculating circumference of a Circle.
-class Point{
-    constructor(x,y){
-        this.x = x;
-        this.y = y;
-    }
-};
-class Circle extends Point{
-    constructor(x,y, radius){
-        super(x,y),
-        this.radius = radius;
-    }
-};
 
 function circleCircumference(circle) {
   const circumference = 2 * Math.PI * circle.radius;
   return Number(circumference.toFixed(6));
 }
-
-let geometryPointTest  = new Point(10, 10);
-let geometryCircleTest = new Circle(30);
-
 
 // 2 Завдання
 // https://www.codewars.com/kata/training-js-number-12-loop-statement-for-dot-in-and-for-dot-of/train/javascript
@@ -30,17 +14,13 @@ let geometryCircleTest = new Circle(30);
 // Separately, if the length of the value is equal to 5, then push the value to your array.
 // At the end, return your array.
 
-function giveMeFive(obj){
-  const arr = [];
+function giveMeFive(obj) {
+  const resultOfArray = [];
   for (let key in obj) {
-    if (key.length === 5) {
-      arr.push(key);
-      }
-    if (obj[key].length === 5) {
-      arr.push(obj[key])
-    }
+    if (key.length === 5) resultOfArray.push(key);
+    if (obj[key].length === 5) resultOfArray.push(obj[key]);
+    return resultOfArray;
   }
-  return obj
 }
 
 // 3 Завдання
@@ -49,19 +29,13 @@ function giveMeFive(obj){
 // The single parameter accepted by buildFun is the number of elements N of the array returned.
 
 function buildFun(n) {
-    const res = [1,2,3,4,5,6,7,8,9,10]
-  
-    function createFunction(index) {
-        return function () {
-            return index;
-        };
-    };
-    for (let i = 0; i < n; i++) {
-        res.push(
-            createFunction(i)
-        )
-    }
-    return res
+  const resultOfArray = [];
+  for (let i = 0; i < n; i++) {
+    resultOfArray.push(function (){
+      return i;
+    })
+    }  
+    return resultOfArray
 }
 
 // 4 Завдання
@@ -81,26 +55,21 @@ class Animal {
 }
 class Shark extends Animal {
   constructor(name,age,status) {
-    super(name,age, 0, "shark", status);
+    super(name, age, 0, "shark", status);
   }
 }
-
 class Cat extends Animal {
   constructor (name,age,status) {
     super(name, age, 4, "cat", status);
   }
   introduce () {
-    return `${super.introduce()}  Meow meow!`;
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
   }
 }
-
 class Dog extends Animal {
   constructor(name, age, status, master) {
     super(name, age, 4, "dog", status);
     this.master = master;
   }
-
-  greetMaster() {
-    return `Hello ${this.master}`;
-  }
+  greetMaster() { return `Hello ${this.master}`; }
 }
