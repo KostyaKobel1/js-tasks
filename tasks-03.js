@@ -1,10 +1,27 @@
 // 1 Завдання
 // https://www.codewars.com/kata/geometry-basics-circle-circumference-in-2d/train/javascript
 // Write a function calculating circumference of a Circle.
+class Point{
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+    }
+};
+class Circle extends Point{
+    constructor(x,y, radius){
+        super(x,y),
+        this.radius = radius;
+    }
+};
+
 function circleCircumference(circle) {
   const circumference = 2 * Math.PI * circle.radius;
   return Number(circumference.toFixed(6));
 }
+
+let geometryPointTest  = new Point(10, 10);
+let geometryCircleTest = new Circle(30);
+
 
 // 2 Завдання
 // https://www.codewars.com/kata/training-js-number-12-loop-statement-for-dot-in-and-for-dot-of/train/javascript
