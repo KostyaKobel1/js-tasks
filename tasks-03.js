@@ -3,8 +3,7 @@
 // Write a function calculating circumference of a Circle.
 
 function circleCircumference(circle) {
-  const circumference = 2 * Math.PI * circle.radius;
-  return Number(circumference.toFixed(6));
+  return +(2 * Math.PI * circle.radius).toFixed(6);
 }
 
 // 2 Завдання
